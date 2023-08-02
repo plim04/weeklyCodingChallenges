@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 //PART 1
@@ -21,20 +22,21 @@ import (
 // 	fmt.Println("Total:", basket)
 // }
 
-func basketTotal(basket []string) int {
-	basket[0] := 0.50
-	basket[1] := 0.90
-	basket[2] := 0.70
-	basket[3] := 1.50
-
-	for _, num := range basket {
-		return
-	}
-}
-
 func main() {
 	basket := []string{"Banana", "Cat Food", "Bread", "Avocado"}
 
-	fmt.Println(basketTotal(basket))
+	basket[0] = "eagle"
+
 	fmt.Println("Total:", basket)
+
+	basket[0] = "0.50"
+
+	num, err := strconv.ParseFloat(basket[0], 64)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Printf("Value: %v", num)
+
 }
